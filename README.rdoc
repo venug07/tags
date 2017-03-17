@@ -1,0 +1,141 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* ruby 2.2.4
+
+* rails 4.2.5
+
+
+TAG APIS
+
+
+1) Create Tag
+ 
+   Create tag with entity type and entity id.If tag is already existing with same entity type id an entity type then won't create again otherwise create new tag with new entity type and entity type id
+    
+API
+
+POST http://localhost:3000/api/tags/
+
+eg: POST http://localhost:5000/api/tags/
+
+Request
+
+{
+"tag": {  
+"name": "Steel Vessel",
+"entity_type": "Vessel",
+"entity_id": "167" 
+}
+}
+
+Response
+
+{
+"id": 9,
+"entity_type": "Vessel",
+"name": "Steel Vessel",
+"created_at": "2017-03-17T13:54:43.267Z",
+"updated_at": "2017-03-17T13:54:43.267Z",
+"entity_id": "167"
+}
+
+
+2) Get Entity type wise tags
+
+Get all tags belongs to entity type and entity id
+
+API
+
+GET http://localhost:3000/api/tags/:entity_type/:entity_id
+
+eg: GET http://localhost:5000/api/tags/Cups/167
+
+Response
+
+[
+  
+{
+"id": 4,
+"entity_type": "Cups",
+"name": "Steel Mug",
+"created_at": "2017-03-17T13:12:20.448Z",
+"updated_at": "2017-03-17T13:12:20.448Z",
+"entity_id": "167"
+}
+],
+
+3) Delete Entity type and tags
+
+Delete tags belongs to an entity type and entity type id
+
+API
+
+DELETE http://localhost:3000/api/tags/:entity_type/:entity_id
+
+eg: DELETE http://localhost:3000/api/tags/Vehicle/1234
+
+Response
+
+Succesfully deleted entity and tags
+
+4) Get Tag statistics
+
+Get statistics of all tags
+
+API
+
+
+GET http://localhost:3000/api/tags/statistics
+
+eg: GET http://localhost:3000/api/tags/statistics
+
+Response
+
+[
+{
+"name": "Steel Vessels",
+"count": 1
+}
+,
+{
+"name": "Steel Pot",
+"count": 2
+}
+,
+{
+"name": "Plastic Mug",
+"count": 1
+}
+],
+
+4) Get Entity Type and Id wise tag statistics
+
+Get statistics based on entity type and entity id
+
+API
+
+ GET http://localhost:3000/api/tags/statistics/:entity_type/:entity_id
+
+eg: GET http://localhost:5000/api/tags/statistics/Vessel/167
+
+Response
+
+[
+  
+{
+"name": "Steel Vessels",
+"count": 1
+}
+,
+  
+{
+"name": "Steel Pot",
+"count": 1
+}
+],
+

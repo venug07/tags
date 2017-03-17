@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: tag_development
+  pool: 5
+  host: localhost
+  username: postgres
+  password: root
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: tag_test
+  pool: 5
+  host: localhost
+  username: postgres
+  password: root
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: tag_production
+  pool: 5
+  host: localhost
+  username: postgres
+  password: root
